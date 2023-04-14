@@ -47,6 +47,10 @@ try{
 	System.out.println("resultNum : "+resultNum);
 }catch(Exception e){
 	e.printStackTrace();
+}finally{
+	//나중에 만들어진 것을 먼저 close
+	if(pstmt!=null)try{pstmt.close();}catch(Exception e){}
+	if(conn!=null)try{conn.close();}catch(Exception e){}
 }
 
 response.sendRedirect("insertForm.jsp");
