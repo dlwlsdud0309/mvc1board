@@ -12,7 +12,7 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>ifTestform</h3>
 <h3>좋아하는 색상</h3>
-<form action="ifTest">
+<form action="ifTest.jsp">
 	<label for="name">이름</label>
 	<input type="text" id="name" name="name"
 	placeholder="이름을 입력하세요" autofocus required /> <br />
