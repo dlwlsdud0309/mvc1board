@@ -42,10 +42,14 @@ try{
 	pstmt.setString(4, addr);
 	
 	//실행
-	pstmt.executeUpdate();
+	//pstmt.executeUpdate();
+	int resultNum=pstmt.executeUpdate();
+	System.out.println("resultNum : "+resultNum);
 }catch(Exception e){
 	e.printStackTrace();
 }
+
+response.sendRedirect("insertForm.jsp");
 
 %>
 <h4>입력값 확인</h4> <br />
