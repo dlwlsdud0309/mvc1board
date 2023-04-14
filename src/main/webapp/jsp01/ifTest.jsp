@@ -1,3 +1,4 @@
+<%@page import="java.net.Inet4Address"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -37,5 +38,23 @@ if(c.equals("blue")){
 <h3>
 당신이 선택한 색상은 <i><%=strCol %></i>입니다.
 </h3>
+
+<h4>uri, url, ctxPath, method, addr6, addr4</h4>
+<%
+String uri=request.getRequestURI(); //식별자
+StringBuffer url=request.getRequestURL(); //서비스 종류 및 파일 위치, StringBuffer로 받아야한다
+String ctxPath=request.getContextPath(); //content root
+String method=request.getMethod(); //method
+String addr6=request.getRemoteAddr(); //ip v6
+String addr4=Inet4Address.getLocalHost().getHostAddress(); //ip v4
+%>
+uri : <%=uri %> <br />
+url : <%=url %> <br />
+ctxPath : <%=ctxPath %> <br />
+method : <%=method %> <br />
+addr6 : <%=addr6 %> <br />
+addr4 : <%=addr4 %> <br />
+
+
 </body>
 </html>
