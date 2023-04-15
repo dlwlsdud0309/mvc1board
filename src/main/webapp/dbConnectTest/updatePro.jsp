@@ -16,6 +16,8 @@ request.setCharacterEncoding("utf-8");
 <h3>updatePro</h3>
 <%
 String id=request.getParameter("id");
+String name=request.getParameter("name");
+String addr=request.getParameter("addr");
 
 //db연결
 Connection conn=null;
@@ -31,10 +33,11 @@ try{
 	conn=DriverManager.getConnection(url, user, pw);
 	
 	//update
-	String sql="update testmember set addr=? where id=?";
+	String sql="update testmember set name=?, addr=? where id=?";
 	pstmt=conn.prepareStatement(sql);
-	pstmt.setString(1, "수정확인");
-	pstmt.setString(2, id);
+	pstmt.setString(1, name);
+	pstmt.setString(2, addr);
+	pstmt.setString(3, id);
 	
 	//실행
 	int resultNum=pstmt.executeUpdate();
@@ -44,5 +47,7 @@ try{
 }
 %>
 <%=id %>
+<%=name %>
+<%=addr %>
 </body>
 </html>
