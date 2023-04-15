@@ -13,13 +13,10 @@ request.setCharacterEncoding("utf-8");
 <title>my jsp file</title>
 </head>
 <body>
-<h3>updatePro</h3>
+<h3>deletePro</h3>
 <%
 String id=request.getParameter("id");
-String name=request.getParameter("name");
-String addr=request.getParameter("addr");
 
-//db연결
 Connection conn=null;
 PreparedStatement pstmt=null;
 
@@ -32,24 +29,18 @@ try{
 	Class.forName(driver);
 	conn=DriverManager.getConnection(url, user, pw);
 	
-	//update
-	String sql="update testmember set name=?, addr=? where id=?";
+	//delete
+	String sql="delete from testmember where id=?";
 	pstmt=conn.prepareStatement(sql);
-	pstmt.setString(1, name);
-	pstmt.setString(2, addr);
-	pstmt.setString(3, id);
+	pstmt.setString(1, id);
 	
-	//실행
-	int resultNum=pstmt.executeUpdate();
-	System.out.println("updateResultNum : "+resultNum);
+	pstmt.executeUpdate();
 }catch(Exception e){
 	e.printStackTrace();
 }
 
-response.sendRedirect("updateForm.jsp");
+response.sendRedirect("deleteForm.jsp");
 %>
 <%=id %>
-<%=name %>
-<%=addr %>
 </body>
 </html>
