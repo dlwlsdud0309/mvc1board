@@ -15,7 +15,8 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>updatePro2.jsp</h3>
 <%
-String id=request.getParameter("id");
+//String id=(Object)request.getParameter();
+String sessionId=(String)session.getAttribute("id");
 String name=request.getParameter("name");
 String addr=request.getParameter("addr");
 
@@ -35,16 +36,15 @@ try{
 	pstmt=conn.prepareStatement(sql);
 	pstmt.setString(1, name);
 	pstmt.setString(2, addr);
-	pstmt.setString(3, id);
+	pstmt.setString(3, sessionId);
 	
 	pstmt.executeUpdate();
 }catch(Exception e){
 	e.printStackTrace();
 }
+
+response.sendRedirect("updateForm2.jsp");
 %>
 
-<%=id %> <br />
-<%=name %> <br />
-<%=addr %> <br />
 </body>
 </html>

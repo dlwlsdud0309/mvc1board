@@ -12,7 +12,10 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>updateForm2.jsp</h3>
 <form action="updatePro2.jsp">
-id : <input type="text" id="id" name="id" /> <br />
+<!-- id : <input type="text" id="id" name="id" /> <br /> -->
+sessionId : <%= session.getAttribute("id") %> <br />
+
+<h4>회원정보 수정</h4>
 name : <input type="text" id="name" name="name" /> <br />
 address : <input type="text" id="addr" name="addr" /> <br />
 <input type="submit" value="update" />

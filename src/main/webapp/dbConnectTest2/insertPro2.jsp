@@ -39,13 +39,16 @@ try{
 	pstmt.setString(2, pass);
 	pstmt.setString(3, name);
 	pstmt.setString(4, addr);
-	
-	pstmt.executeUpdate();
+
+	int resultNum=pstmt.executeUpdate();
+	if(resultNum>0){
+		session.setAttribute("id", id);
+	}
 }catch(Exception e){
 	e.printStackTrace();
 }
 
-response.sendRedirect("insertForm2.jsp");
+response.sendRedirect("updateForm2.jsp");
 %>
 
 <%-- <%=id %> <br />
