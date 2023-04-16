@@ -18,5 +18,8 @@ name : <input type="text" id="name" name="name" /> <br />
 address : <input type="text" id="addr" name="addr" /> <br />
 <input type="submit" value="insert" />
 </form>
+
+sessionId 확인 : <%=session.getAttribute("id") %>
+
 </body>
 </html>

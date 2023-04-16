@@ -8,6 +8,15 @@ request.setCharacterEncoding("utf-8");
 <head>
 <meta charset="UTF-8">
 <title>my jsp file</title>
+<script>
+	function gotoInsertForm2() {
+		alert("확인");
+		<%-- <%
+			session.removeAttribute("id");
+			response.sendRedirect("insertForm2.jsp");
+		%> --%>
+	}
+</script>
 </head>
 <body>
 <h3>updateForm2.jsp</h3>
@@ -20,5 +29,6 @@ name : <input type="text" id="name" name="name" /> <br />
 address : <input type="text" id="addr" name="addr" /> <br />
 <input type="submit" value="update" />
 </form>
+<button onclick="gotoInsertForm2()">join</button>
 </body>
 </html>
