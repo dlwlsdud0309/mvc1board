@@ -19,7 +19,7 @@ String name=request.getParameter("name");
 String addr=request.getParameter("addr");
 %>
 
-<%=name %> <br />
+<%=name %> <br /> <!-- update는 정상작동 하나 name과 addr는 null값으로 확인됨 -->
 <%=addr %> <br />
 
 <button type="button" onclick="location.href='insertForm2.jsp'">join</button>
