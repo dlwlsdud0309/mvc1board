@@ -10,13 +10,12 @@ request.setCharacterEncoding("utf-8");
 <title>my jsp file</title>
 </head>
 <body>
-<h3>insertForm2.jsp</h3>
-<form action="insertPro2.jsp" method="post">
+<h3>updateForm2.jsp</h3>
+<form action="updatePro2.jsp">
 id : <input type="text" id="id" name="id" /> <br />
-pass : <input type="text" id="pass" name="pass" /> <br />
 name : <input type="text" id="name" name="name" /> <br />
 address : <input type="text" id="addr" name="addr" /> <br />
-<input type="submit" value="insert" />
+<input type="submit" value="update" />
 </form>
 </body>
 </html>
