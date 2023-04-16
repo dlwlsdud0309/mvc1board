@@ -43,7 +43,7 @@ try{
 	e.printStackTrace();
 }
 
-response.sendRedirect("updateForm2.jsp");
+response.sendRedirect("updateCheck.jsp");
 %>
 
 </body>
