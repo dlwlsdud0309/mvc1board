@@ -12,7 +12,7 @@ request.setCharacterEncoding("utf-8");
 	function gotoInsertForm2() {
 		//alert("확인");
 		<%
-			session.removeAttribute("id");
+			//session.removeAttribute("id");
 			//response.sendRedirect("insertForm2.jsp");
 		%>
 		location.href="insertForm2.jsp";
@@ -30,6 +30,6 @@ name : <input type="text" id="name" name="name" /> <br />
 address : <input type="text" id="addr" name="addr" /> <br />
 <input type="submit" value="update" />
 </form>
-<button onclick="gotoInsertForm2()">join</button>
+<button onclick="gotoInsertForm2();">join</button>
 </body>
 </html>
