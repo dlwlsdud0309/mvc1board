@@ -8,6 +8,7 @@ request.setCharacterEncoding("utf-8");
 <head>
 <meta charset="UTF-8">
 <title>my jsp file</title>
+<script src="../js/jquery-3.6.1.min.js"></script>
 </head>
 <body>
 <h3>updateForm2.jsp</h3>
@@ -21,17 +22,17 @@ address : <input type="text" id="addr" name="addr" /> <br />
 <input type="submit" value="update" />
 </form>
 
-<!-- <button onclick="gotoInsertForm2();">join</button> -->
-<button type="button">join</button>
+<button onclick="gotoInsertForm2();">join</button>
+<!-- <button type="button">join</button> -->
 </body>
 <script>
-	<%-- function gotoInsertForm2() {
+	function gotoInsertForm2() {
 		//alert("확인");
 		<%
 			session.removeAttribute("id");
 			//response.sendRedirect("insertForm2.jsp");
 		%>
 		location.href="insertForm2.jsp";
-	} --%>
+	}
 </script>
 </html>
