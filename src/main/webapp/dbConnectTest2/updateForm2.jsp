@@ -10,11 +10,12 @@ request.setCharacterEncoding("utf-8");
 <title>my jsp file</title>
 <script>
 	function gotoInsertForm2() {
-		alert("확인");
-		<%-- <%
+		//alert("확인");
+		<%
 			session.removeAttribute("id");
-			response.sendRedirect("insertForm2.jsp");
-		%> --%>
+			//response.sendRedirect("insertForm2.jsp");
+		%>
+		location.href="insertForm2.jsp";
 	}
 </script>
 </head>
