@@ -16,7 +16,8 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>loginPro.jsp</h3>
 <%
-String sessionId=(String)session.getAttribute("id");
+//String sessionId=(String)session.getAttribute("id");
+String id=request.getParameter("id");
 String pass=request.getParameter("pass");
 
 Connection conn=null;
@@ -37,21 +38,17 @@ try{
 	
 	while(rs.next()){
 		System.out.println(rs.getString("id"));
-		if(sessionId.equals(rs.getString("id")) && pass.equals(rs.getString("pass"))){
-			session.setAttribute("sessionId", sessionId);
+		if(id.equals(rs.getString("id")) && pass.equals(rs.getString("pass"))){
+			session.setAttribute("sessionId", id);
 		}
-		response.sendRedirect("mainPage.jsp");
 	}
 }catch(Exception e){
 	e.printStackTrace();
 }
 
-
-//세션처리
-
-
+response.sendRedirect("mainPage.jsp");
 %>
-<%=sessionId %> <br />
+<%=id %> <br />
 <%=pass %> <br />
 
 <%

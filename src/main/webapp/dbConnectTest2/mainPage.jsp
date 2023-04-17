@@ -12,7 +12,7 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>mainPage.jsp</h3>
 <%
-if(session.getAttribute("id")==null){
+if(session.getAttribute("sessionId")==null){
 %>
 <form action="loginPro.jsp" method="post">
 	아이디 : <input type="text" id="id" name="id" placeholder="아이디를 입력하세요" /> <br />
@@ -22,9 +22,9 @@ if(session.getAttribute("id")==null){
 <%
 }else{
 %>
+<%=session.getAttribute("sessionId") %>님께서 로그인하셨습니다. <br />
 <form action="logout2.jsp" method="post">
 	<input type="submit" value="logout" />
-	<%=session.getAttribute("id") %>님께서 로그인하셨습니다. <br />
 </form>
 <%
 }

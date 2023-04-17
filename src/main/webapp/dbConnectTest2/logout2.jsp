@@ -11,7 +11,7 @@ request.setCharacterEncoding("utf-8");
 </head>
 <body>
 <%
-session.removeAttribute("id");
+session.removeAttribute("sessionId");
 
 response.sendRedirect("insertForm2.jsp");
 %>
