@@ -12,7 +12,7 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>updateCheck</h3>
 <h3>회원정보 수정된 내용 확인</h3>
-<%=session.getAttribute("id") %> <br />
+<%=session.getAttribute("sessionId") %> <br />
 
 <%
 String name=request.getParameter("name");

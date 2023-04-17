@@ -16,7 +16,7 @@ request.setCharacterEncoding("utf-8");
 <h3>updatePro2.jsp</h3>
 <%
 //String id=(Object)request.getParameter();
-String sessionId=(String)session.getAttribute("id");
+String sessionId=(String)session.getAttribute("sessionId");
 String name=request.getParameter("name");
 String addr=request.getParameter("addr");
 
@@ -45,6 +45,10 @@ try{
 
 response.sendRedirect("updateCheck.jsp");
 %>
+
+<!-- name과 addr은 정상으로 나온다 -->
+<%=name %>
+<%=addr %>
 
 </body>
 </html>

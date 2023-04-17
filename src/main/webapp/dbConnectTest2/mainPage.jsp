@@ -14,9 +14,10 @@ request.setCharacterEncoding("utf-8");
 <%
 if(session.getAttribute("sessionId")==null){
 %>
+<i>로그인이 필요합니다.</i>
 <form action="loginPro.jsp" method="post">
-	아이디 : <input type="text" id="id" name="id" placeholder="아이디를 입력하세요" /> <br />
-	비밀번호 : <input type="text" id="pass" name="pass" placeholder="비밀번호를 입력하세요" /> <br />
+	아이디 : <input type="text" id="id" name="id" placeholder="아이디를 입력하세요" autofocus required /> <br />
+	비밀번호 : <input type="text" id="pass" name="pass" placeholder="비밀번호를 입력하세요" autofocus required /> <br />
 	<input type="submit" value="login" />
 </form>
 <%
@@ -26,6 +27,7 @@ if(session.getAttribute("sessionId")==null){
 <form action="logout2.jsp" method="post">
 	<input type="submit" value="logout" />
 </form>
+<button type="button" onclick="location.href='updateForm2.jsp'">update</button>
 <%
 }
 %>
