@@ -11,6 +11,7 @@ request.setCharacterEncoding("utf-8");
 </head>
 <body>
 <h3>insertForm2.jsp</h3>
+<%-- <%session.invalidate(); %> --%>
 
 <form action="insertPro2.jsp" method="post">
 id : <input type="text" id="id" name="id" /> <br />

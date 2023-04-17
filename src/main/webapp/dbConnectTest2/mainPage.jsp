@@ -20,6 +20,7 @@ if(session.getAttribute("sessionId")==null){
 	비밀번호 : <input type="text" id="pass" name="pass" placeholder="비밀번호를 입력하세요" autofocus required /> <br />
 	<input type="submit" value="login" />
 </form>
+<button type="button" onclick="location.href='insertForm2.jsp'">join</button>
 <%
 }else{
 %>
@@ -27,10 +28,9 @@ if(session.getAttribute("sessionId")==null){
 <form action="logout2.jsp" method="post">
 	<input type="submit" value="logout" />
 </form>
-<button type="button" onclick="location.href='updateForm2.jsp'">update</button>
+<button type="button" onclick="location.href='updateCheck.jsp'">myPage</button>
 <%
 }
 %>
-<button type="button" onclick="location.href='insertForm2.jsp'">join</button>
 </body>
 </html>
