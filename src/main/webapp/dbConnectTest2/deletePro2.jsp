@@ -10,6 +10,6 @@ request.setCharacterEncoding("utf-8");
 <title>my jsp file</title>
 </head>
 <body>
-<h3>deletePro.jsp</h3>
+<h3>deletePro2.jsp</h3>
 </body>
 </html>

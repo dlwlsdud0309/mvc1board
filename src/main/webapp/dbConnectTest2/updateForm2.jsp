@@ -23,7 +23,7 @@ address : <input type="text" id="addr" name="addr" /> <br />
 </form>
 
 <button onclick="gotoInsertForm2();">join</button>
-<button onclick="location.href='deletePro.jsp'">delete</button>
+<button onclick="location.href='deletePro2.jsp'">delete</button>
 <!-- <button type="button">join</button> -->
 </body>
 <script>
