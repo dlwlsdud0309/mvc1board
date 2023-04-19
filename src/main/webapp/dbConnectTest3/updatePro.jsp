@@ -1,4 +1,3 @@
-<%@page import="javax.naming.PartialResultException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -14,10 +13,9 @@ request.setCharacterEncoding("utf-8");
 <title>my jsp file</title>
 </head>
 <body>
-<h3>joinPro.jsp</h3>
+<h3>updatePro.jsp</h3>
 <%
-String id=request.getParameter("id");
-String pass=request.getParameter("pass");
+String id=(String)session.getAttribute("sessionId");
 String name=request.getParameter("name");
 String addr=request.getParameter("addr");
 
@@ -33,30 +31,23 @@ try{
 	Class.forName(driver);
 	conn=DriverManager.getConnection(url, user, pw);
 	
-	String sql="insert into testmember(id,pass,name,addr) values(?,?,?,?)";
+	String sql="update testmember set name=?, addr=? where id=?";
 	pstmt=conn.prepareStatement(sql);
-	pstmt.setString(1, id);
-	pstmt.setString(2, pass);
-	pstmt.setString(3, name);
-	pstmt.setString(4, addr);
+	pstmt.setString(1, name);
+	pstmt.setString(2, addr);
+	pstmt.setString(3, id);
 	
-	int resultNum=pstmt.executeUpdate();
-	System.out.println("resultNum : "+resultNum);
-	
-	if(resultNum>0){
-		session.setAttribute("sessionId", id);
-	}
+	pstmt.executeUpdate();
 }catch(Exception e){
 	e.printStackTrace();
 }
 
-response.sendRedirect("mainLogin.jsp");
+response.sendRedirect("myPage.jsp");
 %>
 
-<!-- 확인ok -->
-<%-- <%=id %> <br />
-<%=pass %> <br />
-<%=name %> <br />
-<%=addr %> <br /> --%>
+<%=id %>
+<%=name %>
+<%=addr %>
+
 </body>
 </html>
