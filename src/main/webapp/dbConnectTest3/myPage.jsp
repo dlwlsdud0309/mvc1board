@@ -54,5 +54,6 @@ addr : <%=session.getAttribute("sessionAddr") %> <br />
 <button type="button" onclick="location.href='mainLogin.jsp'">main</button>
 <button type="button" onclick="location.href='update.jsp'">update</button>
 <button type="button" onclick="location.href='logoutPro.jsp'">logout</button>
+<button type="button" onclick="location.href='deletePro.jsp'">delete</button>
 </body>
 </html>
