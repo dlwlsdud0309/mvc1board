@@ -27,18 +27,15 @@ request.setCharacterEncoding("utf-8");
 		<br /><br />
 		<table>
 			<tr>
-				<td colspan="2">L O G I N</td>
-			</tr>
-			<tr>
-				<td>ID : </td>
+				<td><img class="login_form_img" src="../img/idimg.png" alt="idimg" height="20px" /></td>
 				<td>
-					<input type="text" name="id" id="id" maxlength="50" />
+					<input type="text" name="id" id="id" maxlength="50" autofocus required placeholder="아이디"/>
 				</td>
 			</tr>
 			<tr>
-				<td>PASS : </td>
+				<td><img class="login_form_img" src="../img/passimg.png" alt="passimg" height="25px" /></td>
 				<td>
-					<input type="password" name="pass" id="pass" maxlength="50" />
+					<input type="password" name="pass" id="pass" maxlength="50" autofocus required placeholder="비밀번호"/>
 				</td>
 			</tr>
 		</table>
