@@ -4,14 +4,14 @@
 	margin-right: auto;
 	text-align: center;
 }
-table{
+table.loginTable{
 	margin-left: auto;
 	margin-right: auto;
 	border: 5px solid;
 	border-radius: 10px;
 	padding: 10px 10px;
 }
-form>input{
+input.inputButton{
 	background-color: black;
 	border: black;
 	color: white;
@@ -23,4 +23,8 @@ img.login_form_img{
 	bottom: -3px;
 	right: 5px;
 	padding: 0px 3px;
+}
+
+table.joinTable{
+	
 }

@@ -17,7 +17,7 @@ request.setCharacterEncoding("utf-8");
 	onsubmit="return checkLoginButton();">
 		<img src="../img/loginimg.png" id="wel_img" alt="welcome" height="250" />
 		<br /><br />
-		<table>
+		<table class="loginTable">
 			<tr>
 				<td><img class="login_form_img" src="../img/idimg.png" alt="idimg" height="20px" /></td>
 				<td>
@@ -33,22 +33,19 @@ request.setCharacterEncoding("utf-8");
 			<%
 				//msg
 				String sendMsg=request.getParameter("msg");
+				String code1="<tr><td colspan='2' style='text-align:center;'><br><span style='font-weight: bold;'>";
+				String code2="</span></tr></td>";
+				
 				if(sendMsg!=null && sendMsg.equals("0")){
-					out.print("<tr><td colspan='2' style='text-align:center;'>");
-					out.print("<br>");
-					out.print("<span style='font-weight: bold;'>비밀번호 확인</span>");
-					out.print("</tr></td>");
+					out.print(code1+"비밀번호 확인"+code2);
 				}else if(sendMsg!=null && sendMsg.equals("-1")){
-					out.print("<tr><td colspan='2' style='text-align:center;'>");
-					out.print("<br>");
-					out.print("<span style='font-weight: bold;'>아이디 확인</span>");
-					out.print("</tr></td>");
+					out.print(code1+"아이디 확인"+code2);
 				}
 			%>
 		</table>
 		<br />
-		<input type="submit" value="login" />
-		<input type="button" value="join" onclick="joinForm();" />
+		<input class="inputButton" type="submit" value="login" />
+		<input class="inputButton" type="button" value="join" onclick="joinForm();" />
 	</form>
 	
 	
