@@ -11,26 +11,6 @@ request.setCharacterEncoding("utf-8");
 <link rel="stylesheet" href="../css/join_style.css" />
 </head>
 <body>
-<script>
-	function checkLoginButton(){
-		//inputForm=eval("document.logininfo")
-		//alert(inputForm.pass.value);
-		
-		var objid={logininfo:logininfo.id.value};
-		var objpass={logininfo:logininfo.pass.value};
-		var property="logininfo";
-
-		if(!objid[property] || objid[property]==""){
-			alert("아이디를 입력하세요")
-			return false; //login을 눌러도 다음 창으로 넘어가지 않음
-		}
-		else if(!objpass[property] || objpass==""){
-			alert("비밀번호를 입력하세요")
-			return false; //login을 눌러도 다음 창으로 넘어가지 않음
-		}
-		return true;		
-	}
-</script>
 <h3>loginForm.jsp</h3>
 <div id="wrap">
 	<form action="loginproc.jsp" method="post" name="logininfo"
@@ -50,11 +30,55 @@ request.setCharacterEncoding("utf-8");
 					<input type="password" name="pass" id="pass" maxlength="50" placeholder="비밀번호"/>
 				</td>
 			</tr>
+			<%
+				//msg
+				String sendMsg=request.getParameter("msg");
+				if(sendMsg!=null && sendMsg.equals("0")){
+					out.print("<tr><td colspan='2' style='text-align:center;'>");
+					out.print("<br>");
+					out.print("<span style='font-weight: bold;'>비밀번호 확인</span>");
+					out.print("</tr></td>");
+				}else if(sendMsg!=null && sendMsg.equals("-1")){
+					out.print("<tr><td colspan='2' style='text-align:center;'>");
+					out.print("<br>");
+					out.print("<span style='font-weight: bold;'>아이디 확인</span>");
+					out.print("</tr></td>");
+				}
+			%>
 		</table>
 		<br />
 		<input type="submit" value="login" />
-		<input type="button" value="join" />
+		<input type="button" value="join" onclick="joinForm();" />
 	</form>
+	
+	
 </div>
+
+
+
+<script>
+	function joinForm(){
+		location.href="../join/joinForm.jsp";
+	}
+
+	function checkLoginButton(){
+		//inputForm=eval("document.logininfo")
+		//alert(inputForm.pass.value);
+		
+		var objid={logininfo:logininfo.id.value};
+		var objpass={logininfo:logininfo.pass.value};
+		var property="logininfo";
+
+		if(!objid[property] || objid[property]==""){
+			alert("아이디를 입력하세요")
+			return false; //login을 눌러도 다음 창으로 넘어가지 않음
+		}
+		else if(!objpass[property] || objpass==""){
+			alert("비밀번호를 입력하세요")
+			return false; //login을 눌러도 다음 창으로 넘어가지 않음
+		}
+		return true;		
+	}
+</script>
 </body>
 </html>
