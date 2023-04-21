@@ -13,10 +13,22 @@ request.setCharacterEncoding("utf-8");
 <body>
 <script>
 	function checkLoginButton(){
-		inputForm=eval("document.logininfo")
-		alert(inputForm.pass.value);
+		//inputForm=eval("document.logininfo")
+		//alert(inputForm.pass.value);
 		
-		return false; //login을 눌러도 다음 창으로 넘어가지 않음
+		var objid={logininfo:logininfo.id.value};
+		var objpass={logininfo:logininfo.pass.value};
+		var property="logininfo";
+
+		if(!objid[property] || objid[property]==""){
+			alert("아이디를 입력하세요")
+			return false; //login을 눌러도 다음 창으로 넘어가지 않음
+		}
+		else if(!objpass[property] || objpass==""){
+			alert("비밀번호를 입력하세요")
+			return false; //login을 눌러도 다음 창으로 넘어가지 않음
+		}
+		return true;		
 	}
 </script>
 <h3>loginForm.jsp</h3>
@@ -29,13 +41,13 @@ request.setCharacterEncoding("utf-8");
 			<tr>
 				<td><img class="login_form_img" src="../img/idimg.png" alt="idimg" height="20px" /></td>
 				<td>
-					<input type="text" name="id" id="id" maxlength="50" autofocus required placeholder="아이디"/>
+					<input type="text" name="id" id="id" maxlength="50" placeholder="아이디"/>
 				</td>
 			</tr>
 			<tr>
 				<td><img class="login_form_img" src="../img/passimg.png" alt="passimg" height="25px" /></td>
 				<td>
-					<input type="password" name="pass" id="pass" maxlength="50" autofocus required placeholder="비밀번호"/>
+					<input type="password" name="pass" id="pass" maxlength="50" placeholder="비밀번호"/>
 				</td>
 			</tr>
 		</table>
