@@ -18,6 +18,17 @@ PASS : <input type="password" id="pass" name="pass" /> <br />
 <input type="submit" value="login" />
 <input type="button" value="join" onclick="joinForm();"/>
 </form>
+<%
+String sendMsg=request.getParameter("msg");
+String code1="<tr><td colspan='2' style='text-align:center;'><br><span style='font-weight: bold;'>";
+String code2="</span></tr></td>";
+
+if(sendMsg!=null && sendMsg.equals("-1")){
+	out.print(code1+"아이디 확인"+code2);
+}else if(sendMsg!=null && sendMsg.equals("0")){
+	out.print(code1+"비밀번호 확인"+code2);
+}
+%>
 
 <script>
 	function joinForm(){
