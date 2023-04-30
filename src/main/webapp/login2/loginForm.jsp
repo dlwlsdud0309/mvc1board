@@ -14,7 +14,7 @@ request.setCharacterEncoding("utf-8");
 <form action="loginPro.jsp" method="post" name="logininfo"
 onsubmit="return checkLogin();">
 ID : <input type="text" id="id" name="id" /> <br />
-PASS : <input type="text" id="pass" name="pass" /> <br />
+PASS : <input type="password" id="pass" name="pass" /> <br />
 <input type="submit" value="login" />
 <input type="button" value="join" onclick="joinForm();"/>
 </form>
@@ -28,6 +28,9 @@ PASS : <input type="text" id="pass" name="pass" /> <br />
 		var objid={logininfo:logininfo.id.value};
 		var objpass={logininfo:logininfo.pass.value};
 		var property="logininfo";
+		
+		//alert(objid[property]);
+		//alert(objpass["logininfo"]);
 		
 		if(!objid[property] || objid[property]==""){
 			alert("아이디를 입력하세요")

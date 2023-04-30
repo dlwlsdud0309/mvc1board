@@ -48,16 +48,44 @@ pstmt.setString(1, id);
 
 ResultSet rs=pstmt.executeQuery(); */
 
+String dbPass="";
+int x=-1;
+String msg="";
 
-while(rs.next()){
-	if(id.equals(rs.getString("id")) && pass.equals(rs.getString("pass"))){
-		session.setAttribute("sessionId", id);
+if(rs.next()){
+	//if(id.equals(rs.getString("id")) && pass.equals(rs.getString("pass"))){
+	//	session.setAttribute("sessionId", id);
+	//}
+	
+	//rs.next()가 true라면 칼럼 id가 존재한다는 의미
+	dbPass=rs.getString("pass");
+	if(dbPass.equals(pass)){
+		x=1;
+	}else{ //pass불필치
+		x=0;
 	}
+}else{
+	System.out.println("id 불일치, input id : "+id);
+	x=-1;
 }
+System.out.println("x : "+x);
+
+
+//x값으로 전송위치를 결정
+if(x==1){ //id와 pass 전부 일치, 로그인 성공
+	session.setAttribute("sessionId", id);
+	//msg="../index.jsp";
+	msg="checkLogin.jsp";
+}else if(x==0){ //pass 불일치
+	msg="loginForm.jsp?msg=0";
+}else{ //id와 pass 전부 불일치
+	msg="loginForm.jsp?msg=-1";
+}
+response.sendRedirect(msg);
 %>
 
-<%=id %>
+<%-- <%=id %>
 <%=pass %>
-<%=session.getAttribute("sessionId") %>
+<%=session.getAttribute("sessionId") %> --%>
 </body>
 </html>
