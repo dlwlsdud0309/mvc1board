@@ -7,7 +7,25 @@
 <%
 request.setCharacterEncoding("utf-8");
 %>
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>my jsp file</title>
+</head>
+<body>
+<h3>selectPro.jsp</h3>
+<table border="1" width="100%">
+	<tr style="text-align: center; background-color: gray; color: white;">
+		<td>ID</td>
+		<td>PASS</td>
+		<td>NAME</td>
+		<td>ADDRESS</td>
+		<!-- <td>GENDER</td>
+		<td>BIRTHDATE</td>
+		<td>PHONE</td>
+		<td>EMAIL</td> -->
+	</tr>
 <%
 Connection conn=null;
 PreparedStatement pstmt=null;
@@ -27,35 +45,27 @@ pstmt=conn.prepareStatement(sql);
 
 //실행
 rs=pstmt.executeQuery();
-rs.next();
-System.out.println("rs : "+rs.getString("id"));
+//rs.next();
+//System.out.println("rs : "+rs.getString("id"));
 
+while(rs.next()){
+	String id=rs.getString("id"); //String id=rs.getString(1);와 동일함
+	String pass=rs.getString("pass");
+	String name=rs.getString("name");
+	String addr=rs.getString("addr");
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>my jsp file</title>
-</head>
-<body>
-<h3>selectPro.jsp</h3>
-<table border="1" width="50%">
 	<tr>
-		<td>ID</td>
-		<td>PASS</td>
-		<td>NAME</td>
-		<td>ADDRESS</td>
-		<!-- <td>GENDER</td>
-		<td>BIRTHDATE</td>
-		<td>PHONE</td>
-		<td>EMAIL</td> -->
+		<td><%=id %></td>
+		<td><%=pass %></td>
+		<td><%=name %></td>
+		<td><%=addr %></td>
 	</tr>
-	<tr>
-		<td>id</td>
-		<td>pass</td>
-		<td>name</td>
-		<td>addr</td>
-	</tr>
+<%
+}
+%>
 </table>
+<button type="button" onclick="location.href='insertForm.jsp'">글쓰기</button>
+<button type="button" onclick="location.href='updateForm.jsp'">수정</button>
+<button type="button" onclick="location.href='deleteForm.jsp'">삭제</button>
 </body>
 </html>
