@@ -1,3 +1,4 @@
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -40,6 +41,7 @@ String email=request.getParameter("email");
 
 Connection conn=null;
 PreparedStatement pstmt=null;
+//Statement stmt=null;
 
 String driver="oracle.jdbc.driver.OracleDriver";
 String url="jdbc:oracle:thin:@localhost:1521:xe";
@@ -49,7 +51,15 @@ String pw="123456";
 Class.forName(driver);
 conn=DriverManager.getConnection(url, user, pw);
 
-String sql="insert into testmember(seq,id,pass,name,addr,gender,birthdate,phone,email) values(testmember_seq.nextval,?,?,?,?,?,?,?,?)";
+/* String sql="insert into testmember(seq,id,pass,name,addr,gender,birthdate,phone,email) values("
+			+"testmember_seq.nextval,'"+id+"','"+pass+"','"+name+"','"+addr+"','"+gender+"','"
+			+dateSqlBirthdate+"','"+phone+"','"+email+"')";
+stmt=conn.createStatement();
+int resultNumStmt=stmt.executeUpdate(sql);
+System.out.println("resultNumStmt : "+resultNumStmt); */
+
+String sql="insert into testmember(seq,id,pass,name,addr,gender,birthdate,phone,email) "+
+			"values(testmember_seq.nextval,?,?,?,?,?,?,?,?)";
 pstmt=conn.prepareStatement(sql);
 
 pstmt.setString(1, id);
@@ -64,9 +74,9 @@ pstmt.setString(8, email);
 
 int resultNum=pstmt.executeUpdate();
 System.out.println("resultNum : "+resultNum);
+
+response.sendRedirect("selectPro.jsp");
 %>
-<%=dateSqlBirthdate %>
-<%=gender %>
 
 </body>
 </html>
