@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -16,15 +17,16 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>selectPro.jsp</h3>
 <table border="1" width="100%">
-	<tr style="text-align: center; background-color: gray; color: white;">
+	<tr style="text-align: center; background-color: #d9dddc; font-weight: bold;">
+		<td>NO</td>
 		<td>ID</td>
 		<td>PASS</td>
 		<td>NAME</td>
 		<td>ADDRESS</td>
-		<!-- <td>GENDER</td>
+		<td>GENDER</td>
 		<td>BIRTHDATE</td>
 		<td>PHONE</td>
-		<td>EMAIL</td> -->
+		<td>EMAIL</td>
 	</tr>
 <%
 Connection conn=null;
@@ -49,16 +51,26 @@ rs=pstmt.executeQuery();
 //System.out.println("rs : "+rs.getString("id"));
 
 while(rs.next()){
+	int seq=rs.getInt("seq");
 	String id=rs.getString("id"); //String id=rs.getString(1);와 동일함
 	String pass=rs.getString("pass");
 	String name=rs.getString("name");
 	String addr=rs.getString("addr");
+	String gender=rs.getString("gender");
+	Date birthdate=rs.getDate("birthdate");
+	String phone=rs.getString("phone");
+	String email=rs.getString("email");
 %>
 	<tr>
+		<td><%=seq %></td>
 		<td><%=id %></td>
 		<td><%=pass %></td>
 		<td><%=name %></td>
 		<td><%=addr %></td>
+		<td><%=gender %></td>
+		<td><%=birthdate %></td>
+		<td><%=phone %></td>
+		<td><%=email %></td>
 	</tr>
 <%
 }
