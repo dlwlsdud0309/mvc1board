@@ -27,7 +27,8 @@ String sql="select * from noticeboards order by seq desc";
 //pstmt=conn.prepareStatement(sql);
 stmt=conn.createStatement();
 rs=stmt.executeQuery(sql);
-
+//rs.next();
+//System.out.println(rs.getString("title"));
 %>
 <!DOCTYPE html>
 <html>
@@ -36,6 +37,29 @@ rs=stmt.executeQuery(sql);
 <title>my jsp file</title>
 </head>
 <body>
-<h3>noticeboards</h3>
+<h3>Noticeboards</h3>
+<table border="1">
+	<tr>
+		<td>번호</td>
+		<td>제목</td>
+		<td>작성자</td>
+		<td>작성일</td>
+		<td>조회수</td>
+	</tr>
+<%
+	while(rs.next()){
+%>
+	<tr>
+		<td><%=rs.getInt("seq") %></td>
+		<td><%=rs.getString("title") %></td>
+		<td><%=rs.getString("content") %></td>
+		<td><%=rs.getTimestamp("regdate") %></td>
+		<td><%=rs.getInt("hit") %></td>
+	</tr>
+<%
+	}
+%>
+</table>
+
 </body>
 </html>
