@@ -27,6 +27,7 @@ request.setCharacterEncoding("utf-8");
 	<div>
 		<textarea name="content" id="txtcontent" class="txtcontent" placeholder="내용을 입력하세요"></textarea>
 	</div>
+	<input type="submit" value="insert" />
 </form>
 </body>
 </html>

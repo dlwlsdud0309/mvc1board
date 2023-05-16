@@ -10,6 +10,12 @@ request.setCharacterEncoding("utf-8");
 <title>my jsp file</title>
 </head>
 <body>
+<%
+String title = request.getParameter("title");
+String content = request.getParameter("content");
+%>
 
+<%=title %> <br />
+<%=content %>
 </body>
 </html>
