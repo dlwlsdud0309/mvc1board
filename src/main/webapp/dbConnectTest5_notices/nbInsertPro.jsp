@@ -21,7 +21,7 @@ String content = request.getParameter("content");
 Connection conn = null;
 PreparedStatement pstmt = null;
 
-String driver = "oracle.jdbc.driver.OricleDriver";
+String driver = "oracle.jdbc.driver.OracleDriver";
 String url = "jdbc:oracle:thin:@localhost:1521:xe";
 String user = "hr";
 String pw = "123456";
@@ -29,10 +29,16 @@ String pw = "123456";
 Class.forName(driver);
 conn = DriverManager.getConnection(url, user, pw);
 
-String sql = "";
+String sql = "insert into noticeboards(seq, title, writer, content, regdate, hit)";
+		sql+= " values((select max(seq)+1 from noticeboards)";
+		sql+= ", ?, '임의작성자', ?, systimestamp, 0)";
 pstmt = conn.prepareStatement(sql);
 
+pstmt.setString(1, title);
+pstmt.setString(2, content);
 
+int resultNum = pstmt.executeUpdate();
+System.out.println("resultNum : "+resultNum);
 %>
 
 <%-- <%=title %> <br />
