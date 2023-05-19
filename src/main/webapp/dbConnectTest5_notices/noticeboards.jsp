@@ -5,6 +5,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 request.setCharacterEncoding("utf-8");
 %>
@@ -55,13 +56,29 @@ rs=stmt.executeQuery(sql);
 			<a href="#"><%=rs.getString("title") %></a>
 		</td>
 		<td><%=rs.getString("content") %></td>
-		<td><%=rs.getTimestamp("regdate") %></td>
+		<td>
+			<fmt:formatDate value='<%=rs.getTimestamp("regdate") %>' pattern="yyyy-MM-dd"/>
+		</td>
 		<td><%=rs.getInt("hit") %></td>
 	</tr>
 <%
 	}
 %>
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
