@@ -53,7 +53,7 @@ rs=stmt.executeQuery(sql);
 	<tr>
 		<td><%=rs.getInt("seq") %></td>
 		<td>
-			<a href="#"><%=rs.getString("title") %></a>
+			<a href="noticeboardsDetail.jsp"><%=rs.getString("title") %></a>
 		</td>
 		<td><%=rs.getString("content") %></td>
 		<td>
