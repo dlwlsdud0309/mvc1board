@@ -38,7 +38,7 @@ rs=stmt.executeQuery(sql);
 </head>
 <body>
 <h3>Noticeboards</h3>
-<table border="1">
+<table border="1" width="80%">
 	<tr>
 		<td>번호</td>
 		<td>제목</td>
@@ -51,7 +51,9 @@ rs=stmt.executeQuery(sql);
 %>
 	<tr>
 		<td><%=rs.getInt("seq") %></td>
-		<td><%=rs.getString("title") %></td>
+		<td>
+			<a href="#"><%=rs.getString("title") %></a>
+		</td>
 		<td><%=rs.getString("content") %></td>
 		<td><%=rs.getTimestamp("regdate") %></td>
 		<td><%=rs.getInt("hit") %></td>
