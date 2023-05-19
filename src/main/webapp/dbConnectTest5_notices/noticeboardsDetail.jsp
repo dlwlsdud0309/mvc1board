@@ -13,7 +13,7 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>noticeboardsDetail.jsp</h3>
 
-<table class="twidth" border="1">
+<table class="twidth">
 	<colgroup>
 		<col width="15%"/>
 		<col width="35%"/>
