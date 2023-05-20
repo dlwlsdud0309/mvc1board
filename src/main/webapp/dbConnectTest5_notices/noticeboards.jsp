@@ -57,7 +57,8 @@ rs=stmt.executeQuery(sql);
 		</td>
 		<td><%=rs.getString("content") %></td>
 		<td>
-			<fmt:formatDate value='<%=rs.getTimestamp("regdate") %>' pattern="yyyy-MM-dd"/>
+			<%-- <fmt:formatDate value='<%=rs.getTimestamp("regdate") %>' pattern="yyyy-MM-dd"/> --%>
+			<%=rs.getDate("regdate") %>
 		</td>
 		<td><%=rs.getInt("hit") %></td>
 	</tr>
