@@ -1,7 +1,29 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 request.setCharacterEncoding("utf-8");
+%>
+<%
+String num = request.getParameter("no");
+
+String driver = "oracle.jdbc.driver.OracleDriver";
+String url = "jdbc:oracle:thin:@localhost:1521:xe";
+String user = "hr";
+String pw = "123456";
+
+Class.forName(driver);
+Connection conn = DriverManager.getConnection(url, user, pw);
+
+String sql = "select * from noticeboards where seq="+num;
+
+Statement st = conn.createStatement();
+ResultSet rs = st.executeQuery(sql);
+
+//System.out.println(rs.getString("title"));
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +46,7 @@ request.setCharacterEncoding("utf-8");
 	<tbody>
 		<tr>
 			<th class="left">글번호</th>
-			<td>1</td>
+			<td><%=num %></td>
 			<th class="left">조회수</th>
 			<td>100</td>
 		</tr>
