@@ -11,9 +11,6 @@ request.setCharacterEncoding("utf-8");
 <%
 String num = request.getParameter("no");
 
-/* if(num==null){
-	num="1";
-} */
 
 String driver = "oracle.jdbc.driver.OracleDriver";
 String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -28,7 +25,18 @@ Connection conn = DriverManager.getConnection(url, user, pw);
 //Statement st = conn.createStatement();
 //ResultSet rs = st.executeQuery(sql);
 
-String sql = "select * from noticeboards where seq=?";
+String sql = "";
+
+if(num==null){
+	//num="1";
+	//response.sendRedirect("noticeboards.jsp");
+	//response.sendRedirect("/");
+	//num="";
+	System.out.println("null");
+	sql = "select * from noticeboards where seq=(select min(seq) from noticeboards)";
+}else {
+	sql = "select * from noticeboards where seq=?";
+}
 
 PreparedStatement pstmt = conn.prepareStatement(sql);
 pstmt.setInt(1, Integer.parseInt(num));
