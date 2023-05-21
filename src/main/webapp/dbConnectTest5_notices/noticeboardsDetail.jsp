@@ -11,6 +11,10 @@ request.setCharacterEncoding("utf-8");
 <%
 String num = request.getParameter("no");
 
+/* if(num==null){
+	num="1";
+} */
+
 String driver = "oracle.jdbc.driver.OracleDriver";
 String url = "jdbc:oracle:thin:@localhost:1521:xe";
 String user = "hr";
