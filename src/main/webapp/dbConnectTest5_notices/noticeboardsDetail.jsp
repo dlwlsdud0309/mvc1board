@@ -1,3 +1,4 @@
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -18,10 +19,19 @@ String pw = "123456";
 Class.forName(driver);
 Connection conn = DriverManager.getConnection(url, user, pw);
 
-String sql = "select * from noticeboards where seq='"+num+"'"; //num이 String이기 때문에 작은따옴표 사용
+//String sql = "select * from noticeboards where seq='"+num+"'"; //num이 String이기 때문에 작은따옴표 사용
 
-Statement st = conn.createStatement();
-ResultSet rs = st.executeQuery(sql);
+//Statement st = conn.createStatement();
+//ResultSet rs = st.executeQuery(sql);
+
+String sql = "select * from noticeboards where seq=?";
+
+PreparedStatement pstmt = conn.prepareStatement(sql);
+pstmt.setInt(1, Integer.parseInt(num));
+
+ResultSet rs = pstmt.executeQuery();
+rs.next();
+
 
 //System.out.println(rs.getString("title"));
 %>
