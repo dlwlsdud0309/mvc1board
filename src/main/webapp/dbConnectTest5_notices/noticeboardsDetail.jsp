@@ -58,17 +58,17 @@ rs.next();
 			<th class="left">글번호</th>
 			<td><%=num %></td>
 			<th class="left">조회수</th>
-			<td>100</td>
+			<td><%=rs.getInt("hit") %></td>
 		</tr>
 		<tr>
 			<th class="left">작성자</th>
-			<td>asd123</td>
+			<td><%=rs.getString("writer") %></td>
 			<th class="left">작성일</th>
-			<td>2099-99-99</td>
+			<td><%=rs.getDate("regdate") %></td>
 		</tr>
 		<tr>
 			<th class="left">내용</th>
-			<td colspan="3" id="content">내용입력</td>
+			<td colspan="3" id="content"><%=rs.getString("content") %></td>
 		</tr>
 		<tr>
 			<th class="left">첨부</th>

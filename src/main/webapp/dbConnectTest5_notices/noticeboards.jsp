@@ -66,20 +66,6 @@ rs=stmt.executeQuery(sql);
 	}
 %>
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<a href="nbInsertReg.jsp">글쓰기</a>
 </body>
 </html>

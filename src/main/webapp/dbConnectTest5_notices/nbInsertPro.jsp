@@ -39,6 +39,8 @@ pstmt.setString(2, content);
 
 int resultNum = pstmt.executeUpdate();
 System.out.println("resultNum : "+resultNum);
+
+response.sendRedirect("noticeboards.jsp");
 %>
 
 <%-- <%=title %> <br />
