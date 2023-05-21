@@ -18,7 +18,7 @@ String pw = "123456";
 Class.forName(driver);
 Connection conn = DriverManager.getConnection(url, user, pw);
 
-String sql = "select * from noticeboards where seq="+num;
+String sql = "select * from noticeboards where seq='"+num+"'"; //num이 String이기 때문에 작은따옴표 사용
 
 Statement st = conn.createStatement();
 ResultSet rs = st.executeQuery(sql);
