@@ -35,6 +35,7 @@ if(num==null){
 	System.out.println("null");
 	sql = "select * from noticeboards where seq=(select min(seq) from noticeboards)";
 }else {
+	System.out.println("sql 정상 작동");
 	sql = "select * from noticeboards where seq=?";
 }
 
