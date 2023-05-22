@@ -11,6 +11,11 @@ request.setCharacterEncoding("utf-8");
 <%
 String num = request.getParameter("no");
 
+if(num==null){
+	System.out.println("null");
+	response.sendRedirect("noticeboards.jsp");
+	return;
+}
 
 String driver = "oracle.jdbc.driver.OracleDriver";
 String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -25,16 +30,7 @@ Connection conn = DriverManager.getConnection(url, user, pw);
 //Statement st = conn.createStatement();
 //ResultSet rs = st.executeQuery(sql);
 
-String sql = "";
-
-if(num==null){
-	System.out.println("null");
-	response.sendRedirect("noticeboards.jsp");
-	return;
-}else {
-	System.out.println("sql 정상 작동");
-	sql = "select * from noticeboards where seq=?";
-}
+String sql = "select * from noticeboards where seq=?";
 
 PreparedStatement pstmt = conn.prepareStatement(sql);
 pstmt.setInt(1, Integer.parseInt(num));
