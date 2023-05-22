@@ -29,11 +29,12 @@ String sql = "";
 
 if(num==null){
 	//num="1";
-	//response.sendRedirect("noticeboards.jsp");
 	//response.sendRedirect("/");
 	//num="";
-	System.out.println("null");
-	sql = "select * from noticeboards where seq=(select min(seq) from noticeboards)";
+	//System.out.println("null");
+	//sql = "select * from noticeboards where seq=(select min(seq) from noticeboards)";
+	response.sendRedirect("noticeboards.jsp");
+	return;
 }else {
 	System.out.println("sql 정상 작동");
 	sql = "select * from noticeboards where seq=?";
