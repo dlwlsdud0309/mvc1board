@@ -28,11 +28,7 @@ Connection conn = DriverManager.getConnection(url, user, pw);
 String sql = "";
 
 if(num==null){
-	//num="1";
-	//response.sendRedirect("/");
-	//num="";
-	//System.out.println("null");
-	//sql = "select * from noticeboards where seq=(select min(seq) from noticeboards)";
+	System.out.println("null");
 	response.sendRedirect("noticeboards.jsp");
 	return;
 }else {
