@@ -15,6 +15,7 @@ if(num==null){
 	System.out.println("null");
 	response.sendRedirect("noticeboards.jsp");
 	return;
+	//참조사이트 : https://findmypiece.tistory.com/55
 }
 
 String driver = "oracle.jdbc.driver.OracleDriver";
