@@ -26,11 +26,6 @@ String pw = "123456";
 Class.forName(driver);
 Connection conn = DriverManager.getConnection(url, user, pw);
 
-//String sql = "select * from noticeboards where seq='"+num+"'"; //num이 String이기 때문에 작은따옴표 사용
-
-//Statement st = conn.createStatement();
-//ResultSet rs = st.executeQuery(sql);
-
 String sql = "select * from noticeboards where seq=?";
 
 PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -50,7 +45,7 @@ rs.next();
 <link rel="stylesheet" href="../css/nstyle.css" />
 </head>
 <body>
-<h3>noticeboardsDetail.jsp</h3>
+<h3>noticeboardsEdit.jsp</h3>
 
 <table class="twidth">
 	<colgroup>
@@ -75,11 +70,15 @@ rs.next();
 		</tr>
 		<tr>
 			<th class="left">제목</th>
-			<td colspan="3" id="title"><%=rs.getString("title") %></td>
+			<td colspan="3" id="title">
+				<textarea class="text" name="title" cols="30"><%=rs.getString("title") %></textarea>
+			</td>
 		</tr>
 		<tr>
 			<th class="left">내용</th>
-			<td colspan="3" id="content"><%=rs.getString("content") %></td>
+			<td colspan="3" id="content">
+				<textarea class="text" name="content" rows="10" cols="30"><%=rs.getString("content") %></textarea>
+			</td>
 		</tr>
 		<tr>
 			<th class="left">첨부</th>
@@ -88,7 +87,6 @@ rs.next();
 	</tbody>
 </table>
 
-<a href="noticeboardsEdit.jsp?no=<%=rs.getInt("seq") %>">수정</a>
 <a href="noticeboards.jsp">목록</a>
 
 </body>
