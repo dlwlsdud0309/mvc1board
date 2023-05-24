@@ -47,47 +47,49 @@ rs.next();
 <body>
 <h3>noticeboardsEdit.jsp</h3>
 
-<table class="twidth">
-	<colgroup>
-		<col width="15%"/>
-		<col width="35%"/>
-		<col width="5%"/>
-		<col width="35%"/>
-	</colgroup>
-	<caption>Detail</caption>
-	<tbody>
-		<tr>
-			<th class="left">글번호</th>
-			<td><%=num %></td>
-			<th class="left">조회수</th>
-			<td><%=rs.getInt("hit") %></td>
-		</tr>
-		<tr>
-			<th class="left">작성자</th>
-			<td><%=rs.getString("writer") %></td>
-			<th class="left">작성일</th>
-			<td><%=rs.getDate("regdate") %></td>
-		</tr>
-		<tr>
-			<th class="left">제목</th>
-			<td colspan="3" id="title">
-				<textarea class="text" name="title" cols="30"><%=rs.getString("title") %></textarea>
-			</td>
-		</tr>
-		<tr>
-			<th class="left">내용</th>
-			<td colspan="3" id="content">
-				<textarea class="text" name="content" rows="10" cols="30"><%=rs.getString("content") %></textarea>
-			</td>
-		</tr>
-		<tr>
-			<th class="left">첨부</th>
-			<td colspan="3" id="addfile">첨부</td>
-		</tr>
-	</tbody>
-</table>
-
-<a href="noticeboards.jsp">목록</a>
+<form action="notieceboardsEditProc.jsp" method="post">
+	<table class="twidth">
+		<colgroup>
+			<col width="15%"/>
+			<col width="35%"/>
+			<col width="5%"/>
+			<col width="35%"/>
+		</colgroup>
+		<caption>Detail</caption>
+		<tbody>
+			<tr>
+				<th class="left">글번호</th>
+				<td><%=num %></td>
+				<th class="left">조회수</th>
+				<td><%=rs.getInt("hit") %></td>
+			</tr>
+			<tr>
+				<th class="left">작성자</th>
+				<td><%=rs.getString("writer") %></td>
+				<th class="left">작성일</th>
+				<td><%=rs.getDate("regdate") %></td>
+			</tr>
+			<tr>
+				<th class="left">제목</th>
+				<td colspan="3" id="title">
+					<textarea class="text" name="title" cols="30"><%=rs.getString("title") %></textarea>
+				</td>
+			</tr>
+			<tr>
+				<th class="left">내용</th>
+				<td colspan="3" id="content">
+					<textarea class="text" name="content" rows="10" cols="30"><%=rs.getString("content") %></textarea>
+				</td>
+			</tr>
+			<tr>
+				<th class="left">첨부</th>
+				<td colspan="3" id="addfile">첨부</td>
+			</tr>
+		</tbody>
+	</table>
+	<input type="submit" value="수정" />
+	<a href="noticeboards.jsp">취소</a>
+</form>
 
 </body>
 </html>
