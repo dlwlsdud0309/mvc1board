@@ -21,12 +21,14 @@ Class.forName(driver);
 Connection conn = null;
 conn = DriverManager.getConnection(url, user, pw);
 
-String sql = "select * from noticeboards where seq=?";
+//String sql = "select * from noticeboards where seq=?";
 
 PreparedStatement pstmt = null;
 pstmt = conn.prepareStatement(sql);
 
 pstmt.setInt(1, Integer.parseInt(num));
+pstmt.setString(2, title);
+pstmt.setString(3, content);
 
 ResultSet rs = null;
 rs = pstmt.executeQuery();
