@@ -1,9 +1,37 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 request.setCharacterEncoding("utf-8");
 %>
-<%String num = request.getParameter("no"); %>
+<%
+String num = request.getParameter("no");
+String title = request.getParameter("title");
+String content = request.getParameter("content");
+
+String driver = "oracle.jdbc.Driver.OracleDriver";
+String url = "jdbc:oracle:thin:@localhost:1521:xe";
+String user = "hr";
+String pw = "123456";
+
+Class.forName(driver);
+Connection conn = null;
+conn = DriverManager.getConnection(url, user, pw);
+
+String sql = "select * from noticeboards where seq=?";
+
+PreparedStatement pstmt = null;
+pstmt = conn.prepareStatement(sql);
+
+pstmt.setInt(1, Integer.parseInt(num));
+
+ResultSet rs = null;
+rs = pstmt.executeQuery();
+//rs.next();
+%>
 <!DOCTYPE html>
 <html>
 <head>
