@@ -55,7 +55,7 @@ rs=stmt.executeQuery(sql);
 		<td>
 			<a href="noticeboardsDetail.jsp?no=<%=rs.getInt("seq") %>"><%=rs.getString("title") %></a>
 		</td>
-		<td><%=rs.getString("content") %></td>
+		<td><%=rs.getString("writer") %></td>
 		<td>
 			<%-- <fmt:formatDate value='<%=rs.getTimestamp("regdate") %>' pattern="yyyy-MM-dd"/> --%>
 			<%=rs.getDate("regdate") %>

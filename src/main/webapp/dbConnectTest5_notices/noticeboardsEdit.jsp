@@ -87,7 +87,7 @@ rs.next();
 			</tr>
 		</tbody>
 	</table>
-	<input type="text" name="no" value="<%=rs.getInt("seq") %>" />
+	<input type="hidden" name="no" value="<%=rs.getInt("seq") %>" />
 	<input type="submit" value="수정" />
 	<a href="noticeboards.jsp">취소</a>
 </form>

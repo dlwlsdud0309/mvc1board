@@ -12,7 +12,7 @@ String num = request.getParameter("no");
 String title = request.getParameter("title");
 String content = request.getParameter("content");
 
-String driver = "oracle.jdbc.Driver.OracleDriver";
+String driver = "oracle.jdbc.driver.OracleDriver";
 String url = "jdbc:oracle:thin:@localhost:1521:xe";
 String user = "hr";
 String pw = "123456";
@@ -21,18 +21,20 @@ Class.forName(driver);
 Connection conn = null;
 conn = DriverManager.getConnection(url, user, pw);
 
-//String sql = "select * from noticeboards where seq=?";
+String sql = "update noticeboards set title=?, content=? where seq=?";
 
 PreparedStatement pstmt = null;
 pstmt = conn.prepareStatement(sql);
 
-pstmt.setInt(1, Integer.parseInt(num));
-pstmt.setString(2, title);
-pstmt.setString(3, content);
+pstmt.setString(1, title);
+pstmt.setString(2, content);
+pstmt.setInt(3, Integer.parseInt(num));
 
 ResultSet rs = null;
 rs = pstmt.executeQuery();
 //rs.next();
+
+response.sendRedirect("noticeboards.jsp");
 %>
 <!DOCTYPE html>
 <html>
@@ -44,6 +46,6 @@ rs = pstmt.executeQuery();
 <h3>notieceboardsEditProc.jsp</h3>
 <!-- 전달된 value값을 받아 데이터 베이스에서 해당 글을 수정,
 페이지 Detail로 이동하여 수정된 상태를 확인하기 -->
-<%=num %>
+<%-- <%=num %> --%>
 </body>
 </html>
