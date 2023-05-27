@@ -37,6 +37,7 @@ pstmt.setInt(3, Integer.parseInt(num));
 int cnt = pstmt.executeUpdate();
 if(cnt>0){
 	response.sendRedirect("noticeboards.jsp");
+	//System.out.println("cnt : "+cnt); //결과값 1
 }
 
 %>
