@@ -30,11 +30,15 @@ pstmt.setString(1, title);
 pstmt.setString(2, content);
 pstmt.setInt(3, Integer.parseInt(num));
 
-ResultSet rs = null;
-rs = pstmt.executeQuery();
+//ResultSet rs = null;
+//rs = pstmt.executeQuery();
 //rs.next();
 
-response.sendRedirect("noticeboards.jsp");
+int cnt = pstmt.executeUpdate();
+if(cnt>0){
+	response.sendRedirect("noticeboards.jsp");
+}
+
 %>
 <!DOCTYPE html>
 <html>
