@@ -9,6 +9,14 @@ request.setCharacterEncoding("utf-8");
 %>
 <%
 String num = request.getParameter("no");
+
+if(num==null){
+	System.out.println("null");
+	response.sendRedirect("noticeboards.jsp");
+	return;
+	//참조사이트 : https://findmypiece.tistory.com/55
+}
+
 String title = request.getParameter("title");
 String content = request.getParameter("content");
 
@@ -36,8 +44,8 @@ pstmt.setInt(3, Integer.parseInt(num));
 
 int cnt = pstmt.executeUpdate();
 if(cnt>0){
-	response.sendRedirect("noticeboards.jsp");
 	//System.out.println("cnt : "+cnt); //결과값 1
+	response.sendRedirect("noticeboardsDetail.jsp?no="+num);
 }
 
 %>
