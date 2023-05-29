@@ -90,6 +90,7 @@ rs.next();
 
 <a href="noticeboardsEdit.jsp?no=<%=rs.getInt("seq") %>">수정</a>
 <a href="noticeboards.jsp">목록</a>
+<a href="noticeboardsDelProc.jsp?no=<%=rs.getInt("seq") %>">삭제</a>
 
 </body>
 </html>
