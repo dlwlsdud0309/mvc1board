@@ -12,5 +12,8 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>nbJoin.jsp</h3>
 <!-- noticeboards와 join할 테이블 nbmember 생성 -->
+<form action="nbJoinProc.jsp">
+	아이디 : <input type="text" name="id" />
+</form>
 </body>
 </html>
