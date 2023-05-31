@@ -25,7 +25,9 @@ if(id==null || id.equals("")){ //에러가 있을 때(id를 입력하지 않았�
 	errors.add("아이디를 입력해주세요");
 }
 if(!pwd.equals(pwd2)){
-	errors.add("패스워드가 일치하지 않습니다");
+	errors.add("비밀번호가 일치하지 않습니다");
+}else if(pwd==null || pwd.equals("")){
+	errors.add("비밀번호를 입력해주세요");	
 }
 
 if(errors.size()>0){ //에러가 존재한다면
