@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -11,11 +12,26 @@ request.setCharacterEncoding("utf-8");
 </head>
 <body>
 <h3>nbJoin.jsp</h3>
+
+<p style="color: red;">
+<%
+if(request.getAttribute("errors")!=null){ //에러가 존재한다면
+	List<String> errors=(List)request.getAttribute("errors");
+	for(int i=0; i<errors.size(); i++){
+	%>
+		<%=errors.get(i) %> <br />	
+	<%
+	}
+}
+%>
+</p>
+
 <!-- noticeboards와 join할 테이블 nbmember 생성 -->
 <form action="nbJoinProc.jsp">
-	아이디 : <input type="text" name="id" placeholder="아이디를 입력하세요" autofocus required /> <br />
-	비밀번호 : <input type="text" name="pwd" placeholder="비밀번호를 입력하세요" autofocus required /> <br />
-	이름 : <input type="text" name="name" placeholder="이름을 입력하세요" autofocus required /> <br />
+	아이디 : <input type="text" name="id" placeholder="아이디를 입력하세요" /> <br />
+	비밀번호 : <input type="text" name="pwd" placeholder="비밀번호를 입력하세요" /> <br />
+	비밀번호 확인 : <input type="text" name="pwd2" placeholder="비밀번호를 다시 입력하세요" /> <br />
+	이름 : <input type="text" name="name" placeholder="이름을 입력하세요" /> <br />
 	성별 :
 	<select name="gender" id="gender">
 		<option value="m">남성</option>
