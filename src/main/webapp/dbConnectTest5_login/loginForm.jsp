@@ -40,7 +40,10 @@ request.setCharacterEncoding("utf-8");
 
 <script>
 	function checkLoginButton(){
-		alert("check");
+		//alert("check");
+		input=eval("document.logininfo")
+		alert(input.pass.value);
+		
 		return false;
 	}
 </script>
