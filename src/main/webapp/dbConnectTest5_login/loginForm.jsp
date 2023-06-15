@@ -60,7 +60,7 @@ request.setCharacterEncoding("utf-8");
 			alert("비밀번호를 입력하세요")
 			return false; //login을 눌러도 다음 창으로 넘어가지 않음
 		}
-		return true;
+		return true; //기본값이 true이므로 생략가능함
 	}
 </script>
 </body>
