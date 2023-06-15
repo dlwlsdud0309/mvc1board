@@ -40,9 +40,17 @@ request.setCharacterEncoding("utf-8");
 
 <script>
 	function checkLoginButton(){
-		//alert("check");
-		input=eval("document.logininfo")
-		alert(input.pass.value);
+		//보안에 취약한 eval함수 미사용 권장
+		//input=eval("document.logininfo")
+		//alert(input.pass.value);
+		
+		//안티패턴 사용
+		var objid = {logininfo:logininfo.id.value};
+		var objpass = {logininfo:logininfo.pass.value};
+		var property = "logininfo";
+		
+		alert(objid[property]);
+		alert(objpass[property]);
 		
 		return false;
 	}
