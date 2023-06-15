@@ -49,10 +49,18 @@ request.setCharacterEncoding("utf-8");
 		var objpass = {logininfo:logininfo.pass.value};
 		var property = "logininfo";
 		
-		alert(objid[property]);
-		alert(objpass[property]);
+		//alert(objid[property]); //id값 확인
+		//alert(objpass[property]); //pass값 확인
 		
-		return false;
+		if(!objid[property] || objid[property]==""){
+			alert("아이디를 입력하세요")
+			return false; //login을 눌러도 다음 창으로 넘어가지 않음
+		}
+		else if(!objpass[property] || objpass==""){
+			alert("비밀번호를 입력하세요")
+			return false; //login을 눌러도 다음 창으로 넘어가지 않음
+		}
+		return true;
 	}
 </script>
 </body>
