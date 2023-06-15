@@ -26,8 +26,28 @@ PreparedStatement pstmt = conn.prepareStatement(sql);
 pstmt.setString(1, id);
 
 ResultSet rs = pstmt.executeQuery();
-rs.next();
-System.out.println("id : "+rs.getString("id")+" :: "+"pw : "+rs.getString(2));
+//rs.next();
+//System.out.println("id : "+rs.getString("id")+" :: "+"pw : "+rs.getString(2));
+
+
+String dbPass = "";
+int x = -1;
+String msg = "";
+
+if(rs.next()){
+	//System.out.println("id 확인");
+	dbPass = rs.getString("pwd");
+	if(dbPass.equals(pass)){
+		x = 1;
+	}else{
+		x = 0;
+	}
+}else{
+	//System.out.println("id 미확인");
+	System.out.println("id 불일치, input id : "+id);
+	x = -1;
+}
+System.out.println("x : "+x);
 %>
 <!DOCTYPE html>
 <html>
