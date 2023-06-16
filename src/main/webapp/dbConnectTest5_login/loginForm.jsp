@@ -31,6 +31,18 @@ request.setCharacterEncoding("utf-8");
 					<input type="password" name="pass" id="pass" maxlength="50" placeholder="비밀번호" />
 				</td>
 			</tr>
+			<%
+				//msg
+				String sendMsg=request.getParameter("msg");
+				String code1="<tr><td colspan='2' style='text-align:center;'><br><span style='font-weight: bold;'>";
+				String code2="</span></tr></td>";
+				
+				if(sendMsg!=null && sendMsg.equals("0")){
+					out.print(code1+"비밀번호 확인"+code2);
+				}else if(sendMsg!=null && sendMsg.equals("-1")){
+					out.print(code1+"아이디 확인"+code2);
+				}
+			%>
 		</table>
 		<br />
 		<input class="inputButton" type="submit" value="login" />
