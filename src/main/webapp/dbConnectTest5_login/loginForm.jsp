@@ -46,11 +46,15 @@ request.setCharacterEncoding("utf-8");
 		</table>
 		<br />
 		<input class="inputButton" type="submit" value="login" />
-		<input class="inputButton" type="button" value="join" />
+		<input class="inputButton" type="button" value="join" onclick="joinForm();"/>
 	</form>
 </div>
 
 <script>
+	function joinForm(){
+		location.href="../dbConnectTest5_join/nbJoin.jsp";
+	}
+
 	function checkLoginButton(){
 		//보안에 취약한 eval함수 미사용 권장
 		//input=eval("document.logininfo")

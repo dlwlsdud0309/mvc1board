@@ -9,6 +9,7 @@ request.setCharacterEncoding("utf-8");
 <head>
 <meta charset="UTF-8">
 <title>my jsp file</title>
+<link rel="stylesheet" href="../css/join_style.css" />
 </head>
 <body>
 <h3>nbJoin.jsp</h3>
@@ -43,7 +44,8 @@ if(request.getAttribute("errors")!=null){ //에러가 존재한다면
 	핸드폰 번호 : <input type="tel" name="phone" placeholder="예) 010-1234-5678"/> 예) 010-1234-5678 <br />
 	이메일 : <input type="email" name="email" /> <br />
 	
-	<input type="submit" value="확인" />
+	<input class="inputButton" type="submit" value="회원가입" />
+	<input class="inputButton" type="button" value="취소" onclick="location.href='../dbConnectTest5_login/loginForm.jsp'" />
 </form>
 </body>
 </html>

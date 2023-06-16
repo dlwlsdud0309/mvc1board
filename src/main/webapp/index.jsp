@@ -11,6 +11,13 @@ request.setCharacterEncoding("utf-8");
 </head>
 <body>
 <h3>index.jsp</h3>
-<%=session.getAttribute("sessionId") %>님이 로그인하셨습니다.
+<%=session.getAttribute("sessionId") %>님이 로그인하셨습니다. <br />
+<input type="button" value="logout" onclick="logoutProc();" />
+
+<script>
+	function logoutProc(){
+		location.href="./dbConnectTest5_login/logoutProc.jsp";
+	}
+</script>
 </body>
 </html>
