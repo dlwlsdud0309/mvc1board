@@ -39,18 +39,22 @@ if(rs.next()){
 	dbPass = rs.getString("pwd");
 	if(dbPass.equals(pass)){
 		x = 1;
+		session.setAttribute("sessionId", id);
+		msg="../index.jsp";
 	}else{
 		x = 0;
+		msg="loginForm.jsp?msg=0";
 	}
 }else{
 	//System.out.println("id 미확인");
 	System.out.println("id 불일치, input id : "+id);
 	x = -1;
+	msg="loginForm.jsp?msg=-1";
 }
 System.out.println("x : "+x);
 
 //x값으로 전송위치를 결정
-if(x==1){
+/* if(x==1){
 	//로그인에 성공하면 id를 세션에 저장 후 mainpage.jsp로 이동
 	session.setAttribute("sessionId", id);
 	msg="../index.jsp";
@@ -58,7 +62,7 @@ if(x==1){
 	msg="loginForm.jsp?msg=0";
 }else{
 	msg="loginForm.jsp?msg=-1";
-}
+} */
 response.sendRedirect(msg);
 %>
 <!DOCTYPE html>
