@@ -50,7 +50,7 @@ if(rs.next()){
 System.out.println("x : "+x);
 
 //x값으로 전송위치를 결정
-/* if(x==1){
+if(x==1){
 	//로그인에 성공하면 id를 세션에 저장 후 mainpage.jsp로 이동
 	session.setAttribute("sessionId", id);
 	msg="../index.jsp";
@@ -59,7 +59,7 @@ System.out.println("x : "+x);
 }else{
 	msg="loginForm.jsp?msg=-1";
 }
-response.sendRedirect(msg); */
+response.sendRedirect(msg);
 %>
 <!DOCTYPE html>
 <html>
