@@ -12,10 +12,10 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>index.jsp</h3>
 <%
-if(session.getAttribute("sesionId")==null || session.getAttribute("sesionId")==""){ //로그인이 안 된 상태
-	response.sendRedirect("dbConnectTest5_login/loginForm.jsp");
+if(session.getAttribute("sesionId")==null){ //로그인이 안 된 상태
+	//response.sendRedirect("dbConnectTest5_login/loginForm.jsp");
 	//return;
-	//System.out.println(session.getAttribute("sessionId"));
+	System.out.println(session.getAttribute("sessionId"));
 }else { //로그인 된 상태
 %>
 	<%=session.getAttribute("sessionId") %>님이 로그인하셨습니다. <br />
@@ -24,6 +24,7 @@ if(session.getAttribute("sesionId")==null || session.getAttribute("sesionId")=="
 }
 %>
 <br />
+	<%=session.getAttribute("sessionId") %>님이 로그인하셨습니다. <br />
 	<a href="./dbConnectTest5_notices/noticeboards.jsp">noticeBoards</a>
 
 <script>
