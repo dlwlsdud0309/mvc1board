@@ -39,6 +39,20 @@ rs=stmt.executeQuery(sql);
 </head>
 <body>
 <h3>Noticeboards</h3>
+
+<%
+if(session.getAttribute("sessionId")==null){
+	//response.sendRedirect("../dbConnectTest5_login/loginForm.jsp");
+	//return;
+	//위의 주석을 해제하면 정상작동하나 로그인하지 않으면 게시글 읽기 자체도 불가능하게 됨
+}else{
+%>
+	<%=session.getAttribute("sessionId") %>님이 로그인하셨습니다.
+	<input type="button" value="logout" onclick="logoutProc();" /> <br />
+<%
+}
+%>
+
 <table border="1" width="80%">
 	<tr>
 		<td>번호</td>
@@ -66,6 +80,18 @@ rs=stmt.executeQuery(sql);
 	}
 %>
 </table>
-<a href="nbInsertReg.jsp">글쓰기</a>
+<%
+if(session.getAttribute("sessionId")!=null){
+%>
+	<a href="nbInsertReg.jsp">글쓰기</a>
+<%
+}
+%>
+
+<script>
+	function logoutProc(){
+		location.href="../dbConnectTest5_login/logoutProc.jsp";
+	}
+</script>
 </body>
 </html>
