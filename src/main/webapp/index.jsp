@@ -12,8 +12,8 @@ request.setCharacterEncoding("utf-8");
 <body>
 <h3>index.jsp</h3>
 <%
-if(session.getAttribute("sesionId")==null){ //로그인이 안 된 상태
-	//response.sendRedirect("dbConnectTest5_login/loginForm.jsp");
+if(session.getAttribute("sessionId")==null){ //로그인이 안 된 상태
+	response.sendRedirect("dbConnectTest5_login/loginForm.jsp");
 	//System.out.println(session.getAttribute("sessionId"));
 	//return;
 }else { //로그인 된 상태
