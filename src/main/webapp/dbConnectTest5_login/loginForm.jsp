@@ -47,10 +47,15 @@ request.setCharacterEncoding("utf-8");
 		<br />
 		<input class="inputButton" type="submit" value="login" />
 		<input class="inputButton" type="button" value="join" onclick="joinForm();"/>
+		<input class="inputButton" type="button" value="noticeBoards" onclick="noticeBoards();" />
 	</form>
 </div>
 
 <script>
+	function noticeBoards(){
+		location.href="../dbConnectTest5_notices/noticeboards.jsp";
+	}
+
 	function joinForm(){
 		location.href="../dbConnectTest5_join/nbJoin.jsp";
 	}

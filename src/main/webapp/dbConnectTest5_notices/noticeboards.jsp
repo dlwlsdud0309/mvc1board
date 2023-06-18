@@ -85,6 +85,10 @@ if(session.getAttribute("sessionId")!=null){
 %>
 	<a href="nbInsertReg.jsp">글쓰기</a>
 <%
+}else {
+%>
+	<a href="../dbConnectTest5_login/loginForm.jsp">login</a>
+<%
 }
 %>
 
